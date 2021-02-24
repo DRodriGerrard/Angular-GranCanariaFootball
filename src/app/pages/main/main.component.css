@@ -1,0 +1,14 @@
+.main__leagues {
+  margin-top: 50px;
+}
+
+.leagues__component {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.leagues__quest {
+  text-align: center;
+}

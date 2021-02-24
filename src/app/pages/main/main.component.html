@@ -1,0 +1,8 @@
+<div class="main__leagues">
+  <div class="leagues__quest">
+    <h2>What league do you want see?</h2>
+  </div>
+  <div class="leagues__component">
+    <app-main-leagues *ngFor="let league of leagues" [league]="league"></app-main-leagues>
+  </div>
+</div>
