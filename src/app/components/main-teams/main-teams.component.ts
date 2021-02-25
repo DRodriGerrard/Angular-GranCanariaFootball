@@ -12,7 +12,7 @@ export class MainTeamsComponent implements OnInit {
   @Input()
   team!: Team;
 
-  teamLogoImage: string = 'assets/profile/image-profile.png';
+  teamLogoImage: string = 'assets/profile/image-logo.png';
 
   constructor(private router: Router) { }
 
@@ -20,6 +20,10 @@ export class MainTeamsComponent implements OnInit {
 
   goToTeamDetails() {
     this.router.navigateByUrl('/teams/'+this.team.id);
+  }
+
+  updateUrl() {
+    this.team.teamLogo = this.teamLogoImage;
   }
 
 }

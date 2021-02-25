@@ -1,5 +1,5 @@
 <div class="card" (click)="goToPlayerDetails()">
-  <img class="card-img-top" [src]="player.avatar" alt="Card image cap">
+  <img class="card-img-top" [src]="player.avatar" (error)="updateUrl()" alt="Card image cap">
   <div class="card-body">
     <h5 class="card-title">{{player.playerName}}</h5>
   </div>

@@ -12,6 +12,8 @@ export class MainPlayersComponent implements OnInit {
   @Input()
   player!: Player;
 
+  playerAvatarImage: string = 'assets/profile/image-profile.png';
+
   constructor(private router: Router) { }
 
   ngOnInit(): void {
@@ -19,6 +21,10 @@ export class MainPlayersComponent implements OnInit {
 
   goToPlayerDetails() {
     this.router.navigateByUrl('/players/'+this.player.id)
+  }
+
+  updateUrl() {
+    this.player.avatar = this.playerAvatarImage;
   }
 
 }
