@@ -1,4 +1,4 @@
-.teams__component, .players__component {
+.players__component {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }

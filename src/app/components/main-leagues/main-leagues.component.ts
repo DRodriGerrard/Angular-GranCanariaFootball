@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { League } from 'src/app/interfaces/league';
 
 @Component({
   selector: 'app-main-leagues',
@@ -7,10 +9,15 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class MainLeaguesComponent implements OnInit {
 
-  @Input() league: any;
+  @Input()
+  league!: League;
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {}
+
+  goToLeagueDetails() {
+    this.router.navigateByUrl('/leagues/'+this.league.id)
+  }
 
 }

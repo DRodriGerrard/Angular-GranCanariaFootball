@@ -8,17 +8,28 @@ import { MainComponent } from './pages/main/main.component';
 import { MainLeaguesComponent } from './components/main-leagues/main-leagues.component';
 import { LeaguesDetailsComponent } from './pages/leagues-details/leagues-details.component';
 
+import { HttpClientModule } from '@angular/common/http';
+import { MainTeamsComponent } from './components/main-teams/main-teams.component';
+import { MainPlayersComponent } from './components/main-players/main-players.component';
+import { TeamsDetailsComponent } from './pages/teams-details/teams-details.component';
+import { PlayersDetailsComponent } from './pages/players-details/players-details.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     MainComponent,
     MainLeaguesComponent,
-    LeaguesDetailsComponent
+    LeaguesDetailsComponent,
+    MainTeamsComponent,
+    MainPlayersComponent,
+    TeamsDetailsComponent,
+    PlayersDetailsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

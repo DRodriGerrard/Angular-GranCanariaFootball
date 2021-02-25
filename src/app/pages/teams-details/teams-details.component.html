@@ -1,0 +1,9 @@
+<div class="main__details">
+  <div class="league__component">
+    <app-main-teams [team]="team"></app-main-teams>
+  </div>
+  <h2>Players from {{team.teamName}}</h2>
+  <div class="players__component">
+    <app-main-players *ngFor="let player of players" [player]="player"></app-main-players>
+  </div>
+</div>
