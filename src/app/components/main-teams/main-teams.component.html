@@ -1,5 +1,5 @@
 <div class="card" (click)="goToTeamDetails()">
-  <img class="card-img-top" [src]="team.teamLogo" alt="Card image cap">
+  <img class="card-img-top" [src]="team.teamLogo" (error)="updateUrl()" alt="Card image cap">
   <div class="card-body">
     <h5 class="card-title">{{team.teamName}}</h5>
   </div>
