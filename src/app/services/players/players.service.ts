@@ -1,9 +1,26 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Player } from 'src/app/interfaces/player';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PlayersService {
 
-  constructor() { }
+  private dbPath = 'http://localhost:3000/players';
+
+  constructor(private http$: HttpClient) { }
+
+  getPlayersByLeagueHttp(teamId:string): Observable<Player[]> {
+    return this.http$.get<Player[]>(this.dbPath, {
+      params: {
+        teamId: teamId
+      }
+    });
+  }
+
+  getPlayerById(id:string): Observable<Player> {
+    return this.http$.get<Player>(this.dbPath+'/'+id);
+  }
 }

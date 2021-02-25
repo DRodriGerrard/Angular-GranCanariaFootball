@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import axios, { AxiosResponse } from 'axios';
 import { League } from 'src/app/interfaces/league';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,9 +10,13 @@ export class LeaguesService {
 
   private dbPath = 'http://localhost:3000/leagues';
 
-  constructor() {}
+  constructor(private http$: HttpClient) {}
 
-  getLeagues(): Promise<AxiosResponse<League[]>> {
-    return axios.get<League[]>(this.dbPath);
+  getLeaguesHttp(): Observable<League[]> {
+    return this.http$.get<League[]>(this.dbPath);
+  }
+
+  getLeagueById(id:string): Observable<League> {
+    return this.http$.get<League>(this.dbPath+'/'+id);
   }
 }

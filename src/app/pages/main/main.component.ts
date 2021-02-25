@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { League } from 'src/app/interfaces/league';
 import { LeaguesService } from 'src/app/services/leagues/leagues.service';
 
@@ -9,7 +10,8 @@ import { LeaguesService } from 'src/app/services/leagues/leagues.service';
 })
 export class MainComponent implements OnInit {
 
-  leagues: League[] = [];
+  public leagues: League[] = [];
+  private subscription: Subscription = new Subscription();
 
   constructor(private league$: LeaguesService) {}
 
@@ -17,10 +19,12 @@ export class MainComponent implements OnInit {
     this.showLeagues();
   }
 
-  showLeagues() {
-    this.league$.getLeagues()
-    .then(res => this.leagues = res.data)
-    .catch(err => err)
+  showLeagues(): Subscription {
+    return this.subscription = this.league$.getLeaguesHttp().subscribe( (res:League[]) => this.leagues = res);
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
 }
