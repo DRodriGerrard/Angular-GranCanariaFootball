@@ -1,0 +1,44 @@
+<div class="container">
+  <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="leagues">¿A qué liga pertenecerá?*</label>
+      <select class="form-control" id="leagues" formControlName="league" (change)="onChangeLeague($any($event.target).value)">
+        <option *ngFor="let league of leagues">{{league.leagueName}}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="roles">¿Jugador o Equipo?*</label>
+      <select class="form-control" id="roles" formControlName="role" (change)="onChangeRole($any($event.target).value)">
+        <option *ngFor="let role of roles">{{role}}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="teams">¿A qué Equipo?*</label>
+      <select class="form-control" id="teams" formControlName="team" (change)="onChangeTeam($any($event.target).value)">
+        <option *ngFor="let team of teams">{{team.teamName}}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="name">Nombre del Jugador o Equipo*</label>
+      <input type="text" class="form-control" id="name" formControlName="name">
+    </div>
+    <div class="errors">
+      <div *ngIf="submitted && form.name.errors" class="error-required">
+        <div *ngIf="form.name.errors.required">Tienes que nombrarlo!</div>
+      </div>
+      <div *ngIf="submitted && teamExis" class="error-exist">
+        <div><span>Este equipo ya existe!</span></div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <button type="button" class="btn btn-secondary ml-2" (click)="onReset()">Borrar</button>
+  </form>
+
+  <div class="save">
+    <div *ngIf="teamSaved"><span>Has guarado el nuevo Equipo!</span></div>
+    <div *ngIf="playerSaved"><span>Has guardado el nuevo Jugador!</span></div>
+  </div>
+</div>
