@@ -1,8 +1,15 @@
 <nav class="navbar navbar-dark bg-primary">
   <h3>GC Football</h3>
-  <ul class="navbar-nav ml-3 mr-auto mt-2 mt-xl-0">
-    <li class="nav-item active">
-      <a class="nav-link" [routerLink]="['']">Home <span class="sr-only">(current)</span></a>
+  <ul class="navbar-nav mr-auto ml-5 mt-2 mt-xl-0 linklist">
+    <li class="nav-item">
+      <h5><a class="nav-link" [routerLink]="['']">Home</a></h5>
+    </li>
+  </ul>
+  <ul class="navbar-nav mr-2 mt-2 mt-xl-0 linklist">
+    <li class="nav-item">
+      <div class="newlink">
+        <h5><a class="nav-link" [routerLink]="['add']">Nuevo</a></h5>
+      </div>
     </li>
   </ul>
 </nav>

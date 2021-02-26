@@ -13,6 +13,8 @@ import { MainTeamsComponent } from './components/main-teams/main-teams.component
 import { MainPlayersComponent } from './components/main-players/main-players.component';
 import { TeamsDetailsComponent } from './pages/teams-details/teams-details.component';
 import { PlayersDetailsComponent } from './pages/players-details/players-details.component';
+import { AddPlayerteamComponent } from './pages/add-playerteam/add-playerteam.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,12 +26,15 @@ import { PlayersDetailsComponent } from './pages/players-details/players-details
     MainTeamsComponent,
     MainPlayersComponent,
     TeamsDetailsComponent,
-    PlayersDetailsComponent
+    PlayersDetailsComponent,
+    AddPlayerteamComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

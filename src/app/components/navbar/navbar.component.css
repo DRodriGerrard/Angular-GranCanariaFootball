@@ -1,3 +1,23 @@
 h3 {
-  color: rgba(255, 255, 255, 1);
+  color: rgba(255, 255, 0, 1);
+}
+
+.newlink {
+  border-radius: 10px;
+  padding: 0 10px 0 10px;
+  border: 1px solid rgba(255,255,255, 1);
+}
+.newlink:hover {
+  background-color: darkblue;
+  border-radius: 10px;
+  padding: 0 10px 0 10px;
+  border: 1px solid rgba(255,255,255, 1);
+}
+
+h1, h2, h3, h4, h5 {
+  margin: 0;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: rgba(255,255,255, 1);
 }

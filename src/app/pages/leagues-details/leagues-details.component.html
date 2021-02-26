@@ -2,11 +2,11 @@
   <div class="league__component">
     <app-main-leagues [league]="league"></app-main-leagues>
   </div>
-  <h2>Teams from {{league.leagueName}}</h2>
+  <h2>Equipos de {{league.leagueName}}</h2>
   <div class="teams__component">
     <app-main-teams *ngFor="let team of teams" [team]="team"></app-main-teams>
   </div>
-  <h2>Players from {{league.leagueName}}</h2>
+  <h2>Jugadores de {{league.leagueName}}</h2>
   <div>
     <div class="players__component" *ngFor="let players of matrizPlayers">
       <app-main-players *ngFor="let player of players" [player]="player"></app-main-players>

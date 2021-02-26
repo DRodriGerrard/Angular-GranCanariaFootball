@@ -3,6 +3,7 @@ import { Team } from 'src/app/interfaces/team';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { League } from 'src/app/interfaces/league';
+import { first } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -23,5 +24,9 @@ export class TeamsService {
 
   getTeamById(id:string): Observable<Team> {
     return this.http$.get<Team>(this.dbPath+'/'+id);
+  }
+
+  postTeam(team:Team): Observable<Team> {
+    return this.http$.post<Team>(this.dbPath, team).pipe(first());
   }
 }

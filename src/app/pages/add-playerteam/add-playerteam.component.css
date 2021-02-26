@@ -1,0 +1,18 @@
+.container {
+  width: 700px;
+  margin-top: 20px;
+}
+
+.form-group {
+  margin: 0;
+}
+
+.errors {
+  height: 30px;
+  color: rgba(255, 0, 0, 1);
+}
+
+.saved {
+  height: 30px;
+  color: rgba(0, 255, 0, 1);
+}
