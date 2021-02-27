@@ -29,7 +29,11 @@ export class PlayersService {
     return this.http$.post<Player>(this.dbPath, player);
   }
 
-  deletePlayer(playerId:string): Observable<string> {
-    return this.http$.delete<string>(this.dbPath+'/'+playerId);
+  deletePlayer(playerId:string): Observable<Player> {
+    return this.http$.delete<Player>(this.dbPath+'/'+playerId);
+  }
+
+  patchPlayer(player:Player) {
+    return this.http$.patch<Player>(this.dbPath+'/'+player.id, player);
   }
 }

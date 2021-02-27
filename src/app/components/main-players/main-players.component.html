@@ -4,6 +4,7 @@
     <h5 class="card-title">{{player.playerName}}</h5>
   </div>
   <div>
+    <button *ngIf="playerFromLeague" type="button" class="btn btn-warning" (click)="goToEdit()">Editar</button>
     <button *ngIf="playerFromLeague" type="button" class="btn btn-danger" (click)="emitDelete()">Borrar</button>
   </div>
 </div>

@@ -36,4 +36,8 @@ export class MainPlayersComponent implements OnInit {
     this.deleteEmitter.emit(this.player.id);
   }
 
+  goToEdit() {
+    this.router.navigateByUrl('/edit/'+this.player.id);
+  }
+
 }

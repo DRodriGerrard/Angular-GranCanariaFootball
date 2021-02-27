@@ -33,4 +33,8 @@ export class TeamsService {
   deleteTeam(teamId:string): Observable<string> {
     return this.http$.delete<string>(this.dbPath+'/'+teamId);
   }
+
+  patchTeam(team:Team) {
+    return this.http$.patch<Team>(this.dbPath+'/'+team.id, team);
+  }
 }

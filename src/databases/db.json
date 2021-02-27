@@ -628,9 +628,9 @@
       "league": "2b44c97f-c1f8-4731-a627-4bdedcca7ece"
     },
     {
-      "teamName": "Alfa B",
+      "teamName": "Alfa BJ",
       "teamLogo": "assets/profile/image-logo.png",
-      "league": "4ddb5753-679c-4500-906a-f7b2a5f3f95c",
+      "league": "a249ed6a-ad8e-4692-9758-5d19454752f3",
       "id": "_BASITL"
     }
   ],
@@ -7834,6 +7834,18 @@
       "id": "cdd1ada9-4128-4233-8ba4-5120c31668af",
       "avatar": "https://robohash.org/inutminus.png?size=250x250&set=set1",
       "teamId": "be26c85f-1f76-4256-81d7-ebf42f2e711a"
+    },
+    {
+      "playerName": "Juan Jesus",
+      "avatar": "assets/profile/image-profile.png",
+      "teamId": "72434eb3-b64f-49ff-9070-99780c5122af",
+      "id": "vrCnEJ2"
+    },
+    {
+      "playerName": "David Rodríguez",
+      "avatar": "assets/profile/image-profile.png",
+      "teamId": "8154f4cb-246b-4bf9-bc64-51f8661b6781",
+      "id": "XuK0rqm"
     }
   ]
 }

@@ -36,4 +36,8 @@ export class MainTeamsComponent implements OnInit {
     this.deleteEmitter.emit(this.team.id);
   }
 
+  goToEdit() {
+    this.router.navigateByUrl('/edit/'+this.team.id);
+  }
+
 }
