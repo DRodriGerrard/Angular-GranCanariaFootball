@@ -1,6 +1,9 @@
-<div class="card" (click)="goToTeamDetails()">
-  <img class="card-img-top" [src]="team.teamLogo" (error)="updateUrl()" alt="Card image cap">
-  <div class="card-body">
+<div class="card">
+  <img class="card-img-top" [src]="team.teamLogo" (error)="updateUrl()" alt="Card image cap" (click)="goToTeamDetails()">
+  <div class="card-body" (click)="goToTeamDetails()">
     <h5 class="card-title">{{team.teamName}}</h5>
+  </div>
+  <div>
+    <button type="button" *ngIf="teamFromLeague" class="btn btn-danger" (click)="emitDelete()">Borrar</button>
   </div>
 </div>

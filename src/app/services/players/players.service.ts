@@ -28,4 +28,8 @@ export class PlayersService {
   postPlayer(player:Player): Observable<Player> {
     return this.http$.post<Player>(this.dbPath, player);
   }
+
+  deletePlayer(playerId:string): Observable<string> {
+    return this.http$.delete<string>(this.dbPath+'/'+playerId);
+  }
 }

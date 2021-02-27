@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Team } from 'src/app/interfaces/team';
 
@@ -9,14 +9,20 @@ import { Team } from 'src/app/interfaces/team';
 })
 export class MainTeamsComponent implements OnInit {
 
-  @Input()
-  team!: Team;
+  @Input() team!: Team;
+  @Input() fromLeague!: boolean;
 
-  teamLogoImage: string = 'assets/profile/image-logo.png';
+  @Output() deleteEmitter: EventEmitter<string> = new EventEmitter<string>();
+
+  private teamLogoImage: string = 'assets/profile/image-logo.png';
+  public teamFromLeague: boolean = false;
 
   constructor(private router: Router) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (this.fromLeague === true) this.teamFromLeague = true;
+    else this.teamFromLeague = false;
+  }
 
   goToTeamDetails() {
     this.router.navigateByUrl('/teams/'+this.team.id);
@@ -24,6 +30,10 @@ export class MainTeamsComponent implements OnInit {
 
   updateUrl() {
     this.team.teamLogo = this.teamLogoImage;
+  }
+
+  emitDelete() {
+    this.deleteEmitter.emit(this.team.id);
   }
 
 }
