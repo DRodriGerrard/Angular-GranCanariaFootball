@@ -1,5 +1,8 @@
 .navbar {
   padding: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
 }
 h3 {
   padding: 5px 5px 5px 10px;
@@ -9,30 +12,6 @@ h3 {
 .title {
   width: 200px;
 }
-
-/*@media(max-width: 1300px) {
-  .title {
-    background-color: darkblue;
-    width: 100%;
-  }
-}*/
-
-.linklist {
-  padding: 10px 15px 10px 15px;
-  width: 85%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-@media(max-width: 1300px) {
-  .linklist {
-    margin: 0 auto;
-    max-width: 70%;
-  }
-}
-
 
 .newlink {
   border-radius: 10px;
@@ -53,3 +32,42 @@ h1, h2, h3, h4, h5 {
 .navbar-dark .navbar-nav .nav-link {
   color: rgba(255,255,255, 1);
 }
+
+.linklist {
+  padding: 10px 15px 10px 15px;
+  width: 85%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+@media(max-width: 1300px) {
+  .linklist {
+    max-width: 70%;
+  }
+}
+
+@media(max-width: 650px) {
+  .linklist {
+    max-width: 50%;
+  }
+}
+
+
+@media(max-width: 350px) {
+  .linklist {
+    width: 160px;
+    padding: 0;
+    margin-right: 10px;
+  }
+  .title {
+    width: 120px;
+  }
+  .homelink {
+    padding-right: 2.5px;
+  }
+}
+
+
+
