@@ -1,0 +1,11 @@
+.main__details {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+h5 {
+  margin-bottom: 5px;
+  text-align: center;
+}
