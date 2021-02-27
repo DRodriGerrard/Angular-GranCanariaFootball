@@ -35,7 +35,6 @@ export class TeamsDetailsComponent implements OnInit {
   showPlayers(routerParam:string): Subscription {
     return this.player$.getPlayersByLeagueHttp(routerParam).subscribe( (res: Team[]) => {
       this.players = res;
-      console.log(this.players)
     });
   }
 
