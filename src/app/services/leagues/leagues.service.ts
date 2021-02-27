@@ -19,4 +19,8 @@ export class LeaguesService {
   getLeagueById(id:string): Observable<League> {
     return this.http$.get<League>(this.dbPath+'/'+id);
   }
+
+  getLeagueByName(name:string): Observable<League> {
+    return this.http$.get<League>(this.dbPath+'/'+name);
+  }
 }

@@ -15,6 +15,7 @@ import { TeamsDetailsComponent } from './pages/teams-details/teams-details.compo
 import { PlayersDetailsComponent } from './pages/players-details/players-details.component';
 import { AddPlayerteamComponent } from './pages/add-playerteam/add-playerteam.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EditPlayerteamComponent } from './pages/edit-playerteam/edit-playerteam.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MainPlayersComponent,
     TeamsDetailsComponent,
     PlayersDetailsComponent,
-    AddPlayerteamComponent
+    AddPlayerteamComponent,
+    EditPlayerteamComponent
   ],
   imports: [
     BrowserModule,
