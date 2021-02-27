@@ -1,15 +1,29 @@
 <div class="main__details">
+
   <div class="league__component">
     <app-main-leagues [league]="league"></app-main-leagues>
   </div>
-  <h2>Equipos de {{league.leagueName}}</h2>
-  <div class="teams__component">
-    <app-main-teams *ngFor="let team of teams" [team]="team" [fromLeague]="fromLeague" (deleteEmitter)="removeTeam($event)"></app-main-teams>
-  </div>
-  <h2>Jugadores de {{league.leagueName}}</h2>
-  <div>
-    <div class="players__component" *ngFor="let players of matrizPlayers">
-      <app-main-players *ngFor="let player of players" [player]="player" [fromLeague]="fromLeague" (deleteEmitter)="removePlayer($event)"></app-main-players>
+
+  <div class="container nav">
+    <div class="form-group">
+      <input type="text" (keyup)="search()" class="form-control" id="name" [(ngModel)]="toSearch" placeholder="Jugador o Equipo?">
     </div>
   </div>
+
+  <div class="container teams">
+    <h2>Equipos de {{league.leagueName}}</h2>
+    <div class="teams__component">
+      <app-main-teams *ngFor="let team of teams" [team]="team" [fromLeague]="fromLeague" (deleteEmitter)="removeTeam($event)"></app-main-teams>
+    </div>
+  </div>
+
+  <div class="container players">
+    <h2>Jugadores de {{league.leagueName}}</h2>
+    <div>
+      <div class="players__component">
+        <app-main-players *ngFor="let player of players" [player]="player" [fromLeague]="fromLeague" (deleteEmitter)="removePlayer($event)"></app-main-players>
+      </div>
+    </div>
+  </div>
+
 </div>

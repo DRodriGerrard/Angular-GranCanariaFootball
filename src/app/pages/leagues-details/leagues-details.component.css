@@ -1,8 +1,20 @@
 .teams__component, .players__component {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 h2 {
   text-align: center;
+}
+
+.teams, .players {
+  border: 1px solid black;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.nav {
+  margin-bottom: 20px;
 }
