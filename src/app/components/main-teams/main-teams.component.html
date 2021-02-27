@@ -1,7 +1,7 @@
 <div class="card">
   <img class="card-img-top" [src]="team.teamLogo" (error)="updateUrl()" alt="Card image cap" (click)="goToTeamDetails()">
   <div class="card-body" (click)="goToTeamDetails()">
-    <h5 class="card-title">{{team.teamName}}</h5>
+    <h6 class="card-title">{{team.teamName}}</h6>
   </div>
   <div>
     <button *ngIf="teamFromLeague" type="button" class="btn btn-warning" (click)="goToEdit()">Editar</button>

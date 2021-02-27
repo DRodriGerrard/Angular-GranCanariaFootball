@@ -7,6 +7,7 @@ import { LeaguesService } from 'src/app/services/leagues/leagues.service';
 import { League } from 'src/app/interfaces/league';
 import { PlayersService } from 'src/app/services/players/players.service';
 import { Player } from 'src/app/interfaces/player';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-leagues-details',
@@ -17,22 +18,61 @@ export class LeaguesDetailsComponent implements OnInit {
 
   public teams: Team[] = [];
   public matrizPlayers: Player[][] = [];
+  public players: Player[] = [];
   public league: League = {};
   private deletePlayerSubscription: Subscription = new Subscription();
   private deleteTeamSubscription: Subscription = new Subscription();
   private getPlayerSubscription: Subscription = new Subscription();
+  private getTeamsSubscription = new Subscription();
   private subscription: Subscription = new Subscription();
   private leagueParam: string = '';
 
   public fromLeague:boolean = true;
 
-  constructor(private team$: TeamsService, private league$: LeaguesService, private player$: PlayersService, private router: ActivatedRoute ) { }
+  private teamsSaved: Team[] = [];
+  public toSearch: string = '';
+
+  constructor(
+    private team$: TeamsService,
+    private league$: LeaguesService,
+    private player$: PlayersService,
+    private router: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
     this.subscription = this.router.params.subscribe(params => {
       this.leagueParam = params['id'];
       this.showTeams(this.leagueParam);
       this.showLeague(this.leagueParam);
+    })
+  }
+
+  //search...
+  search() {
+    const data = this.toSearch;
+    if (data === '') {
+      this.showTeams(this.leagueParam);
+    }
+    else {
+      this.team$.getTeamsByLeagueHttp(this.leagueParam).subscribe( (res:Team[]) => {
+        this.teams = res;
+        this.teams.sort((a,b) => (a.teamName! > b.teamName!) ? 1 : ((b.teamName! > a.teamName!) ? -1 : 0));
+        this.teams = this.teams.filter(team => team.teamName?.toLocaleLowerCase().startsWith(data));
+
+        this.searchPlayer(data);
+      });
+    }
+  }
+
+  searchPlayer(data:string) {
+    this.players = [];
+    this.teamsSaved.forEach( (team:Team) => {
+      this.player$.getPlayersByLeagueHttp(team.id!).subscribe( (res: Player[]) => {
+        res.sort((a,b) => (a.playerName! > b.playerName!) ? 1 : ((b.playerName! > a.playerName!) ? -1 : 0));
+
+        res = res.filter(player => player.playerName?.toLocaleLowerCase().startsWith(data));
+        this.players = this.players.concat(res);
+      });
     })
   }
 
@@ -43,16 +83,20 @@ export class LeaguesDetailsComponent implements OnInit {
   }
 
   showTeams(routerParam:string): Subscription {
-    return this.team$.getTeamsByLeagueHttp(routerParam).subscribe( (res: Team[]) => {
+    return this.getTeamsSubscription = this.team$.getTeamsByLeagueHttp(routerParam).subscribe( (res: Team[]) => {
       this.teams = res;
+      this.teams.sort((a,b) => (a.teamName! > b.teamName!) ? 1 : ((b.teamName! > a.teamName!) ? -1 : 0));
+      this.teamsSaved = this.teams;
       this.showPlayers(this.teams);
     });
   }
 
   showPlayers(teams: Team[]): Subscription {
+    this.matrizPlayers = [];
     teams.forEach( (team:Team) => {
       this.getPlayerSubscription = this.player$.getPlayersByLeagueHttp(team.id!).subscribe( (res: Player[]) => {
-        this.matrizPlayers.push(res);
+        res.sort((a,b) => (a.playerName! > b.playerName!) ? 1 : ((b.playerName! > a.playerName!) ? -1 : 0));
+        this.players = this.players.concat(res);
       });
     })
     return this.getPlayerSubscription;
@@ -90,6 +134,7 @@ export class LeaguesDetailsComponent implements OnInit {
     this.subscription.unsubscribe();
     this.getPlayerSubscription.unsubscribe();
     this.deletePlayerSubscription.unsubscribe();
+    this.getTeamsSubscription.unsubscribe();
   }
 
 }
