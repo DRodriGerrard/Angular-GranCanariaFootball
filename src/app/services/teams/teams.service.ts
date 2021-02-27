@@ -29,4 +29,8 @@ export class TeamsService {
   postTeam(team:Team): Observable<Team> {
     return this.http$.post<Team>(this.dbPath, team).pipe(first());
   }
+
+  deleteTeam(teamId:string): Observable<string> {
+    return this.http$.delete<string>(this.dbPath+'/'+teamId);
+  }
 }

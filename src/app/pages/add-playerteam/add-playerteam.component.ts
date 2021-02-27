@@ -99,9 +99,6 @@ export class AddPlayerteamComponent implements OnInit {
       teamId: playerTeam?.id
     };
 
-    console.log(playerTeam);
-    console.log(newPlayer)
-
     return this.postPlayerSubscription = this.player$.postPlayer(newPlayer).subscribe(()=>{
       this.playerSaved = true;
       setTimeout(() =>{
@@ -147,7 +144,6 @@ export class AddPlayerteamComponent implements OnInit {
 
   //Default values selected
   defaultLeagueSelected(leagues: League[]) {
-    console.log(this.addForm['controls'].league.value)
     if (this.addForm['controls'].league.value === '') {
 
       this.addForm['controls'].league.setValue(leagues[0].leagueName);
@@ -180,7 +176,6 @@ export class AddPlayerteamComponent implements OnInit {
 
     let leagueByName = this.leagues.find(league => league.leagueName === this.leagueSelected);
     if (leagueByName !== undefined) {
-      //console.log(leagueByName)
       this.showTeams(leagueByName)
     };
   }
@@ -205,7 +200,7 @@ export class AddPlayerteamComponent implements OnInit {
     this.addForm['controls'].league.setValue('');
     this.addForm['controls'].role.setValue(this.roles[0]);
     this.addForm['controls'].name.setValue('');
-    //console.log(this.leagues)
+
     this.defaultLeagueSelected(this.leagues);
   }
 

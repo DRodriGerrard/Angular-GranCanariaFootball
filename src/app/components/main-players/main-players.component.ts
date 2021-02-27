@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { Player } from 'src/app/interfaces/player';
 
@@ -9,14 +9,19 @@ import { Player } from 'src/app/interfaces/player';
 })
 export class MainPlayersComponent implements OnInit {
 
-  @Input()
-  player!: Player;
+  @Input() player!: Player;
+  @Input() fromLeague!: boolean;
 
-  playerAvatarImage: string = 'assets/profile/image-profile.png';
+  @Output() deleteEmitter: EventEmitter<string> = new EventEmitter<string>();
+
+  private playerAvatarImage: string = 'assets/profile/image-profile.png';
+  public playerFromLeague: boolean = false;
 
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+    if (this.fromLeague === true) this.playerFromLeague = true;
+    else this.playerFromLeague = false;
   }
 
   goToPlayerDetails() {
@@ -25,6 +30,10 @@ export class MainPlayersComponent implements OnInit {
 
   updateUrl() {
     this.player.avatar = this.playerAvatarImage;
+  }
+
+  emitDelete() {
+    this.deleteEmitter.emit(this.player.id);
   }
 
 }
