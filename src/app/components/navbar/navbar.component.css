@@ -4,15 +4,24 @@
   flex-direction: row;
   flex-wrap: nowrap;
 }
+
+
 h3 {
   padding: 5px 5px 5px 10px;
-  color: rgba(255, 255, 0, 1);
 }
-
 .title {
+  color: rgba(255, 255, 0, 1);
   width: 200px;
 }
 
+.linklist {
+  padding: 10px 15px 10px 15px;
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
 .newlink {
   border-radius: 10px;
   padding: 0 10px 0 10px;
@@ -33,24 +42,18 @@ h1, h2, h3, h4, h5 {
   color: rgba(255,255,255, 1);
 }
 
-.linklist {
-  padding: 10px 15px 10px 15px;
-  width: 85%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
 @media(max-width: 1300px) {
   .linklist {
-    max-width: 70%;
+    max-width: 90%;
   }
 }
 
 @media(max-width: 650px) {
   .linklist {
-    max-width: 50%;
+    max-width: 70%;
+  }
+  .tile {
+    max-width: 30%;
   }
 }
 

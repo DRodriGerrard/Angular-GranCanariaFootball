@@ -4,7 +4,7 @@
     <h6 class="card-title">{{team.teamName}}</h6>
   </div>
   <div>
-    <button *ngIf="teamFromLeague" type="button" class="btn btn-warning" (click)="goToEdit()">Editar</button>
-    <button type="button" *ngIf="teamFromLeague" class="btn btn-danger" (click)="emitDelete()">Borrar</button>
+    <button *ngIf="teamFromLeague" type="button" class="btn btn-warning edit" (click)="goToEdit()">Editar</button>
+    <button type="button" *ngIf="teamFromLeague" class="btn btn-danger delete" (click)="emitDelete()">Borrar</button>
   </div>
 </div>

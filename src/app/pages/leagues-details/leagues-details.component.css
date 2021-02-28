@@ -6,10 +6,10 @@
 }
 
 .main__details {
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
-h2 {
+h3 {
   text-align: center;
 }
 
@@ -20,7 +20,7 @@ h2 {
 }
 
 .nav {
-  margin-bottom: 20px;
+  margin-bottom: 0;
 }
 
 .search {
