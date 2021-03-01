@@ -19,6 +19,7 @@ export class EditPlayerteamComponent implements OnInit {
   public editForm: FormGroup = new FormGroup({});
 
   private routerParam:string = '';
+  private roleParam:string = '';
 
   public leagues: League[] = [];
   public league: League = {};
@@ -60,7 +61,9 @@ export class EditPlayerteamComponent implements OnInit {
   ngOnInit(): void {
     this.subscription = this.router.params.subscribe(params => {
       this.routerParam = params['id'];
-      this.isPlayer(this.routerParam);
+      this.roleParam = params['role'];
+      if (this.roleParam === 'player') this.isPlayer(this.routerParam);
+      else this.isTeam(this.routerParam);
     });
 
     this.editForm = this.formBuilder.group({
@@ -144,7 +147,7 @@ export class EditPlayerteamComponent implements OnInit {
         this.editForm['controls'].name.setValue(res.playerName);
         this.getTeamFromPlayer(res.teamId!);
       },
-      (err) => this.isTeam(param)
+      (err) => console.log(err)
     );
   }
 

@@ -37,7 +37,7 @@ export class MainTeamsComponent implements OnInit {
   }
 
   goToEdit() {
-    this.router.navigateByUrl('/edit/'+this.team.id);
+    this.router.navigateByUrl('/edit/'+this.team.id+'/team');
   }
 
 }

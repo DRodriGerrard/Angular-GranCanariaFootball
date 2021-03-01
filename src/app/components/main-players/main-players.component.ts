@@ -37,7 +37,7 @@ export class MainPlayersComponent implements OnInit {
   }
 
   goToEdit() {
-    this.router.navigateByUrl('/edit/'+this.player.id);
+    this.router.navigateByUrl('/edit/'+this.player.id+'/player');
   }
 
 }

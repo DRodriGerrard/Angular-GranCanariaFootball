@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'teams/:id', component: TeamsDetailsComponent },
   { path: 'players/:id', component: PlayersDetailsComponent },
   { path: 'add', component: AddPlayerteamComponent },
-  { path: 'edit/:id', component: EditPlayerteamComponent }
+  { path: 'edit/:id/:role', component: EditPlayerteamComponent }
 ];
 
 @NgModule({
