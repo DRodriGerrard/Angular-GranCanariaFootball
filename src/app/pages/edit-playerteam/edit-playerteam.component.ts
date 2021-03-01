@@ -98,7 +98,7 @@ export class EditPlayerteamComponent implements OnInit {
       playerName: this.editForm['controls'].name.value,
       teamId: dataId
     }
-
+    this.playerSaved = true;
     return this.playerUpdated = this.player$.patchPlayer(playerToUpdate).subscribe();
   }
 
@@ -109,7 +109,7 @@ export class EditPlayerteamComponent implements OnInit {
       teamName: this.editForm['controls'].name.value,
       league: dataId
     }
-
+    this.teamSaved = true;
     return this.teamUpdated = this.team$.patchTeam(teamToUpdate).subscribe();
   }
 
