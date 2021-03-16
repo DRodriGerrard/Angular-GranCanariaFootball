@@ -59,8 +59,6 @@ export class LeaguesDetailsComponent implements OnInit {
         this.teams.sort((a,b) => (a.teamName! > b.teamName!) ? 1 : ((b.teamName! > a.teamName!) ? -1 : 0));
         this.teams = this.teams.filter(team => team.teamName?.toLocaleLowerCase().startsWith(data));
 
-        console.log(this.teams)
-
         this.searchPlayer(data);
       });
     }
@@ -85,7 +83,8 @@ export class LeaguesDetailsComponent implements OnInit {
   }
 
   showTeams(routerParam:string): Subscription {
-    return this.getTeamsSubscription = this.team$.getTeamsByLeagueHttp(routerParam).subscribe( (res: Team[]) => {
+    //return this.getTeamsSubscription =
+      return this.team$.getTeamsByLeagueHttp(routerParam).subscribe( (res: Team[]) => {
       this.teams = res;
       this.teams.sort((a,b) => (a.teamName! > b.teamName!) ? 1 : ((b.teamName! > a.teamName!) ? -1 : 0));
       this.teamsSaved = this.teams;
@@ -96,7 +95,7 @@ export class LeaguesDetailsComponent implements OnInit {
   showPlayers(teams: Team[]): Subscription {
     this.matrizPlayers = [];
     teams.forEach( (team:Team) => {
-      this.getPlayerSubscription = this.player$.getPlayersByLeagueHttp(team.id!).subscribe( (res: Player[]) => {
+        this.getPlayerSubscription = this.player$.getPlayersByLeagueHttp(team.id!).subscribe( (res: Player[]) => {
         res.sort((a,b) => (a.playerName! > b.playerName!) ? 1 : ((b.playerName! > a.playerName!) ? -1 : 0));
         this.players = this.players.concat(res);
       });
@@ -107,17 +106,19 @@ export class LeaguesDetailsComponent implements OnInit {
 
   //Delete...
   removePlayer(playerId: string): Subscription {
-    this.deletePlayerSubscription = this.player$.deletePlayer(playerId).subscribe( ()=>{
+    //this.deletePlayerSubscription =
+     return this.player$.deletePlayer(playerId).subscribe( ()=>{
       this.filterMatriz(this.matrizPlayers, playerId);
     });
-    return this.deletePlayerSubscription;
+    ///return this.deletePlayerSubscription;
   }
 
   removeTeam(teamId: string): Subscription {
-    this.deleteTeamSubscription = this.team$.deleteTeam(teamId).subscribe( ()=>{
+    //this.deleteTeamSubscription =
+    return this.team$.deleteTeam(teamId).subscribe( ()=>{
       this.filterTeams(this.teams, teamId);
     });
-    return this.deleteTeamSubscription;
+   // return this.deleteTeamSubscription;
   }
 
 
@@ -135,8 +136,8 @@ export class LeaguesDetailsComponent implements OnInit {
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
     this.getPlayerSubscription.unsubscribe();
-    this.deletePlayerSubscription.unsubscribe();
-    this.getTeamsSubscription.unsubscribe();
+    //this.deletePlayerSubscription.unsubscribe();
+    //this.getTeamsSubscription.unsubscribe();
   }
 
 }

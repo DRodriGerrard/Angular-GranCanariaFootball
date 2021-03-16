@@ -2,3 +2,14 @@
   margin: 30px auto;
   width: 12rem;
 }
+
+.delete {
+  float: right;
+  margin-right: 2px;
+  margin-bottom: 2px;
+}
+
+.edit {
+  margin-left: 2px;
+  margin-bottom: 2px;
+}
