@@ -59,6 +59,8 @@ export class LeaguesDetailsComponent implements OnInit {
         this.teams.sort((a,b) => (a.teamName! > b.teamName!) ? 1 : ((b.teamName! > a.teamName!) ? -1 : 0));
         this.teams = this.teams.filter(team => team.teamName?.toLocaleLowerCase().startsWith(data));
 
+        console.log(this.teams)
+
         this.searchPlayer(data);
       });
     }

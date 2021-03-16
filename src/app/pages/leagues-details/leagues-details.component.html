@@ -10,7 +10,7 @@
     </div>
   </div>
 
-  <div class="container teams" *ngIf="players.length > 0">
+  <div class="container teams" *ngIf="teams.length > 0">
     <h3>Equipos de {{league.leagueName}}</h3>
     <div class="teams__component">
       <app-main-teams *ngFor="let team of teams" [team]="team" [fromLeague]="fromLeague" (deleteEmitter)="removeTeam($event)"></app-main-teams>
